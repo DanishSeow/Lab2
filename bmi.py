@@ -1,21 +1,23 @@
-def calculate_bmi (height,weight):
+def calculate_bmi(height, weight):
     print("Height=" + str(height))
     print("Weight=" + str(weight))
 
-    bmi = weight/(height*height)
-    return bmi
+    # Calculate BMI
+    bmi = weight / (height * height)
+    
+    # Classify BMI
+    if bmi < 18.5:
+        classification = "Under Weight"
+    elif 18.5 <= bmi < 25.0:
+        classification = "Normal Weight"
+    else:
+        classification = "Over Weight"
+    
+    # Return both BMI and classification
+    return bmi, classification  
 
-def classify_bmi (bmi):
-    if bmi<18.5:
-        return "Under Weight"
-    elif 18.5<bmi<25.0:
-        return "Normal Weight"
-    elif bmi>25.0:
-        return "Over Weight"
-
-
-bmi=calculate_bmi(weight=57, height=1.73)
-classification=classify_bmi(bmi)
+# Usage
+bmi, classification = calculate_bmi(weight=57, height=1.73)
 
 print(f"Your BMI is: {bmi:.2f}")
 print(f"You are: {classification}")
